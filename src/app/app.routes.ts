@@ -1,21 +1,8 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  {
-    path: 'tasks',
-    loadChildren: () => import('./tasks/tasks.module').then(m => m.TasksModule)
-  },
-  {
-    path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
-  },
-  {
-    path: '',
-    redirectTo: '/dashboard',
-    pathMatch: 'full',
-  },
-  {
-    path: '**',
-    redirectTo: '/dashboard'
-  }
+  { path: 'tasks', loadComponent: () => import('./tasks/tasks.component').then(m => m.TasksComponent) },
+  { path: 'dashboard', loadComponent: () => import('./dashboard/dashboard.component').then(m => m.DashboardComponent) },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '**', redirectTo: '/dashboard' }
 ];

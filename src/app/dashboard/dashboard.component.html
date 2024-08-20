@@ -1,1 +1,6 @@
-<p>dashboard works!</p>
+<h2>Dashboard</h2>
+<div *ngIf="loading$ | async">Loading...</div>
+<ul>
+  <li *ngFor="let item of data$ | async">{{ item.title }}</li>
+</ul>
+<div *ngIf="error$ | async">{{ error$ | async }}</div>
